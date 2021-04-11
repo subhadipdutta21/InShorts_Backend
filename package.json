@@ -2,5 +2,13 @@
   "name": "InShorts_Backend",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "apollo-server": "^2.22.2",
+    "dataloader": "^2.0.0",
+    "dotenv": "^8.2.0",
+    "graphql": "^15.5.0",
+    "migrate-mongo": "^8.2.2",
+    "mongoose": "^5.12.3"
+  }
 }
