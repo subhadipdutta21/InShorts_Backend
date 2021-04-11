@@ -3,7 +3,7 @@ A Dummy news app backend like Inshorts ,keeping in mind that how i would have de
 
 
 ### env file dummy
-DB_NAME= \n
+DB_NAME=
 USER=
 PASSWORD=
 CLUSTER=
