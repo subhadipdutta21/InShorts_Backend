@@ -5,7 +5,7 @@ module.exports = gql`
   type News {
     _id: ID!
     desc: String!
-    categories: [Category]
+    categories: [ID]
     newsDate: String!
     imageURL: String
     sourceURL: String!
@@ -43,7 +43,7 @@ module.exports = gql`
     offset: Int
   }
 
-  input createNewsInput {    
+  input createNewsInput {
     desc: String!
     categories: [ID]
     newsDate: String
@@ -53,7 +53,7 @@ module.exports = gql`
   }
   # query -------------
   type Query {
-    fetchNews(input: fetchNewsInput!): fetchNewsResponse!
+    fetchNews(input: fetchNewsInput): fetchNewsResponse!
     fetchCategories: fetchCategoriesResponse!
   }
   # mutations ---------

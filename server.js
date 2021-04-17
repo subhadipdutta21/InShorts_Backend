@@ -8,7 +8,7 @@ const resolvers = require("./app/graphQL/resolvers");
 
 const { mongoConfigs } = urls;
 const { URI } = mongoConfigs;
-console.log(URI)
+console.log(URI);
 mongoose.connect(
   URI,
   { useNewUrlParser: true, useUnifiedTopology: true },

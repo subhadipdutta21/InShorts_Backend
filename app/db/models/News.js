@@ -4,9 +4,11 @@ const NewsSchema = mongoose.Schema({
   desc: {
     type: String,
   },
-  categories:[ {
-    type: String
-  }],
+  categories: [
+    {
+      type: String,
+    },
+  ],
   imageURL: {
     type: String,
   },
@@ -17,9 +19,9 @@ const NewsSchema = mongoose.Schema({
     type: String,
   },
   newsDate: {
-      type: Date,
-      default: Date.now
-  }
+    type: Date,
+    default: Date.now,
+  },
 });
 
 const News = mongoose.model("news", NewsSchema);
