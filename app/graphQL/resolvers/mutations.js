@@ -1,4 +1,5 @@
 const { emailValidator } = require("../../../helper/validators");
+const { sendMail } = require("../../../utils/mailer");
 const News = require("../../db/models/News");
 const User = require("../../db/models/User");
 
@@ -37,15 +38,17 @@ module.exports = {
           statusMsg: "User already exists!",
         };
 
-      // create new user
+      const verificationCode = Math.floor(Math.random() * 1000000);
       // got to send the mail
+      sendMail(verificationCode);
+      // create new user
       const user = {
         username: email.split("@")[0],
         email,
         preferences: [],
         verified: false,
         bookmarks: [],
-        verificationCode: 12345,
+        verificationCode,
       };
 
       const resp = await User.create(user);
@@ -65,7 +68,7 @@ module.exports = {
     const { code, userID } = args.input;
     try {
       // check valid user id provided or not
-      const resp = await User.findById(userID);      
+      const resp = await User.findById(userID);
       if (!resp) {
         return {
           statusCode: 400,
@@ -73,7 +76,7 @@ module.exports = {
         };
       }
 
-      // verify code 
+      // verify code
       if (resp.verificationCode === code) {
         console.log("code matched");
         User.findByIdAndUpdate(
@@ -94,7 +97,6 @@ module.exports = {
         statusCode: 400,
         statusMsg: "Code did not match!",
       };
-      
     } catch (error) {
       return {
         statusCode: 400,
