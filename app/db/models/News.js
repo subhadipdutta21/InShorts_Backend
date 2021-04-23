@@ -18,6 +18,9 @@ const NewsSchema = mongoose.Schema({
   headLine: {
     type: String,
   },
+  level: {
+    type: String,
+  },
   newsDate: {
     type: Date,
     default: Date.now,

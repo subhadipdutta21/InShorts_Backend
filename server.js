@@ -8,10 +8,10 @@ const resolvers = require("./app/graphQL/resolvers");
 
 const { mongoConfigs } = urls;
 const { URI } = mongoConfigs;
-console.log(URI);
+
 mongoose.connect(
   URI,
-  { useNewUrlParser: true, useUnifiedTopology: true },
+  { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false },
   (err) => {
     if (!err) {
       console.log("MongoDB connected!");
