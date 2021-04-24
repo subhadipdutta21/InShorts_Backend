@@ -34,6 +34,7 @@ module.exports = gql`
 
   type fetchNewsResponse {
     data: [News]
+    page: Int
     statusCode: Int!
     statusMsg: String!
   }
@@ -65,7 +66,7 @@ module.exports = gql`
     searchString: String
     categories: [ID]
     limit: Int
-    offset: Int
+    page: Int
   }
 
   input createNewsInput {

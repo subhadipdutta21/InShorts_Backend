@@ -29,7 +29,7 @@ module.exports = {
       };
     }
 
-    try {
+    try {     
       // check for duplicate email
       const existingUser = await User.findOne({ email });
       if (existingUser)

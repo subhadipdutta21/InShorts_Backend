@@ -12,8 +12,7 @@ module.exports = {
         statusMsg: "success",
       };
     } catch (error) {
-      return {
-        categories: [],
+      return {        
         statusCode: 400,
         statusMsg: error,
       };
@@ -21,17 +20,20 @@ module.exports = {
   },
 
   fetchNews: async (_, args, __, ___) => {
+    const { limit = 10, page = 1 } = args.input;
     try {
-      const resp = await News.find();
-      console.log(resp);
+      const resp = await News.find()
+        .skip((page-1) * limit)
+        .limit(limit);
+      
       return {
         data: resp,
+        page,
         statusCode: 200,
         statusMsg: "success",
-      }
+      };
     } catch (error) {
-      return {
-        data: [],
+      return {        
         statusCode: 400,
         statusMsg: error,
       };

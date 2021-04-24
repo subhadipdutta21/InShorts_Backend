@@ -12,12 +12,12 @@ module.exports = {
 
     try {
       let info = await transporter.sendMail({
-        from: '"dummy_inshorts_app_check 👌👌" <chandan.dutta62@gmail.com>',
+        from: `"dummy_inshorts_app_check 👌👌" <${process.env.MAILER_EMAIL_ID}>`,
         to: "dsubhadip21@gmail.com",
         subject: "Verification code",
         text: `Hey buddy, here's your verification code - ${code}`,
       });
-      console.log(info);
+      //   console.log(info);
     } catch (err) {
       console.log(err);
     }
